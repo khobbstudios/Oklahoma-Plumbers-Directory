@@ -1,0 +1,124 @@
+@import "tailwindcss";
+
+:root {
+  --background: #f5f9ff;
+  --surface: #ffffff;
+  --border: #dce8f8;
+  --primary: #7fa8e0;
+  --accent: #2f5d9e;
+  --accent-hover: #3b6bb0;
+  --muted: #5b6b82;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-surface: var(--surface);
+  --color-border: var(--border);
+  --color-primary: var(--primary);
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
+  --color-muted: var(--muted);
+  --font-sans: var(--font-poppins);
+}
+
+body {
+  background: var(--background);
+  color: var(--accent);
+}
+
+.reveal {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .reveal {
+    animation: fade-up 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+    animation-delay: var(--reveal-delay, 0ms);
+  }
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.plumber-card {
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.plumber-card:hover,
+.plumber-card:focus-visible {
+  transform: translateY(-4px);
+  box-shadow: 0 24px 48px -24px rgba(47, 93, 158, 0.35);
+  border-color: var(--primary);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .plumber-card {
+    transition: none;
+  }
+  .plumber-card:hover,
+  .plumber-card:focus-visible {
+    transform: none;
+  }
+}
+
+.status-badge {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  gap: 0.375rem;
+  border-radius: 9999px;
+  padding: 0.3rem 0.7rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+}
+
+.status-badge--open {
+  background: #e5f6ec;
+  color: #157a4a;
+}
+
+.status-badge--closed {
+  background: #fdecec;
+  color: #c0362c;
+}
+
+.status-dot {
+  height: 0.5rem;
+  width: 0.5rem;
+  border-radius: 9999px;
+  background: currentColor;
+}
+
+.status-badge--open .status-dot {
+  animation: status-pulse 2s ease-in-out infinite;
+}
+
+@keyframes status-pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(21, 122, 74, 0.35);
+  }
+  50% {
+    box-shadow: 0 0 0 4px rgba(21, 122, 74, 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .status-badge--open .status-dot {
+    animation: none;
+  }
+}
