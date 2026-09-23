@@ -10,7 +10,6 @@ export default function Home() {
       telephone: plumber.phoneE164,
       address: {
         "@type": "PostalAddress",
-        ...(plumber.mapsQuery ? {} : { streetAddress: plumber.address }),
         addressLocality: "Claremore, OK",
         addressRegion: "OK",
         addressCountry: "US",
@@ -57,9 +56,6 @@ export default function Home() {
       <footer className="px-6 py-10 text-center">
         <p className="text-sm font-medium text-muted">
           Claremore, Oklahoma · {new Date().getFullYear()}
-        </p>
-        <p className="mt-1 text-xs text-muted/60">
-          Hours are sourced from public listings and may vary — please call to confirm.
         </p>
       </footer>
     </>
