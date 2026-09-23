@@ -42,8 +42,8 @@ export default function Home() {
         </h1>
       </header>
 
-      <main className="flex-1 px-6 pb-24">
-        <ul className="mx-auto grid max-w-5xl grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3">
+      <main className="flex-1 px-4 pb-24 sm:px-6">
+        <ul className="mx-auto grid max-w-5xl grid-cols-3 gap-x-2 gap-y-6 sm:gap-x-5 sm:gap-y-8">
           {plumbers.map((plumber, index) => (
             <PlumberCard key={plumber.id} plumber={plumber} index={index} />
           ))}
