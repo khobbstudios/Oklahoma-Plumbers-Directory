@@ -34,7 +34,7 @@ export default function Home() {
           Claremore, Oklahoma
         </p>
         <h1 className="mx-auto mt-4 max-w-4xl text-[clamp(2.5rem,3vw+2rem,4.75rem)] font-bold leading-[1.05] tracking-tight text-accent">
-          Best Plumbers in Claremore, OK
+          Plumbers in Claremore, Oklahoma
         </h1>
         <p className="mx-auto mt-6 max-w-xl text-base font-medium text-muted sm:text-lg">
           Trusted local plumbers — tap to call.
