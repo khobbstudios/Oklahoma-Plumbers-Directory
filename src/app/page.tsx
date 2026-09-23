@@ -33,8 +33,16 @@ export default function Home() {
         <p className="text-sm font-bold uppercase tracking-[0.2em] text-accent sm:text-base">
           Claremore, Oklahoma
         </p>
-        <h1 className="mx-auto mt-4 max-w-4xl text-[clamp(2.5rem,3vw+2rem,4.75rem)] font-bold leading-[1.05] tracking-tight text-accent">
-          Plumbers in Claremore, Oklahoma
+        <h1 className="mx-auto mt-4 flex max-w-4xl flex-col items-center tracking-tight text-accent">
+          <span className="text-[clamp(2.75rem,9vw,5.5rem)] font-bold leading-[0.95]">
+            Plumbers
+          </span>
+          <span className="text-[clamp(1.1rem,3vw,1.75rem)] font-bold uppercase leading-none text-black">
+            in
+          </span>
+          <span className="text-[clamp(2.75rem,9vw,5.5rem)] font-bold leading-[0.95]">
+            Claremore
+          </span>
         </h1>
         <p className="mx-auto mt-6 max-w-xl text-base font-medium text-muted sm:text-lg">
           Trusted local plumbers — tap to call.
