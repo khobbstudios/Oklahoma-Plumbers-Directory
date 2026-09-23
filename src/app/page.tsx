@@ -30,10 +30,7 @@ export default function Home() {
           aria-hidden="true"
           className="pointer-events-none absolute left-1/2 top-0 -z-10 h-[32rem] w-[32rem] -translate-x-1/2 -translate-y-1/3 rounded-full bg-gradient-to-br from-primary/40 via-accent/15 to-transparent blur-3xl"
         />
-        <p className="text-sm font-bold uppercase tracking-[0.2em] text-accent sm:text-base">
-          Claremore, Oklahoma
-        </p>
-        <h1 className="mx-auto mt-4 flex max-w-4xl flex-col items-center tracking-tight text-accent">
+        <h1 className="mx-auto flex max-w-4xl flex-col items-center tracking-tight text-accent">
           <span className="text-[clamp(2.75rem,9vw,5.5rem)] font-bold leading-[0.95]">
             Plumbers
           </span>
