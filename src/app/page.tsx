@@ -40,9 +40,6 @@ export default function Home() {
             Claremore
           </span>
         </h1>
-        <p className="mx-auto mt-6 max-w-xl text-base font-medium text-muted sm:text-lg">
-          Trusted local plumbers — tap to call.
-        </p>
       </header>
 
       <main className="flex-1 px-6 pb-24">
