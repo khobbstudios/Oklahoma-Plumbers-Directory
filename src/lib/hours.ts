@@ -3,16 +3,34 @@ export type BusinessHours =
   | { type: "scheduled"; days: number[]; start: string; end: string };
 
 const TIME_ZONE = "America/Chicago";
-const WEEKDAY_INDEX: Record<string, number> = {
-  Sun: 0,
-  Mon: 1,
-  Tue: 2,
-  Wed: 3,
-  Thu: 4,
-  Fri: 5,
-  Sat: 6,
-};
 const DAY_LABELS = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+// en-CA formats as "YYYY-MM-DD, HH:MM" on a 24-hour clock. We rely on that
+// fixed numeric shape instead of Intl's "weekday"/hourCycle parts — some
+// engines silently ignore hourCycle and fall back to 12-hour output with no
+// AM/PM marker, which misreads afternoon hours as their AM equivalent and
+// made open businesses show as closed.
+const CHICAGO_NOW_FORMATTER = new Intl.DateTimeFormat("en-CA", {
+  timeZone: TIME_ZONE,
+  year: "numeric",
+  month: "2-digit",
+  day: "2-digit",
+  hour: "2-digit",
+  minute: "2-digit",
+  hour12: false,
+});
+
+function getChicagoNow(now: Date): { day: number; minutesNow: number } {
+  const formatted = CHICAGO_NOW_FORMATTER.format(now);
+  const match = formatted.match(/(\d{4})-(\d{2})-(\d{2}),?\s*(\d{2}):(\d{2})/);
+  if (!match) return { day: now.getDay(), minutesNow: 0 };
+
+  const [, year, month, day, hour, minute] = match.map(Number) as unknown as number[];
+  // Day-of-week for a calendar date doesn't depend on time zone, so a plain
+  // local Date construction from the Chicago Y/M/D is safe here.
+  const weekday = new Date(year, month - 1, day).getDay();
+  return { day: weekday, minutesNow: hour * 60 + minute };
+}
 
 function toMinutes(time: string): number {
   const [hours, minutes] = time.split(":").map(Number);
@@ -32,19 +50,7 @@ function formatClockTime(time: string): string {
 export function isOpenNow(hours: BusinessHours, now: Date = new Date()): boolean {
   if (hours.type === "24-7") return true;
 
-  const parts = new Intl.DateTimeFormat("en-US", {
-    timeZone: TIME_ZONE,
-    weekday: "short",
-    hour: "2-digit",
-    minute: "2-digit",
-    hourCycle: "h23",
-  }).formatToParts(now);
-
-  const weekday = parts.find((p) => p.type === "weekday")?.value ?? "Sun";
-  const hour = Number(parts.find((p) => p.type === "hour")?.value ?? "0");
-  const minute = Number(parts.find((p) => p.type === "minute")?.value ?? "0");
-  const day = WEEKDAY_INDEX[weekday] ?? 0;
-  const minutesNow = hour * 60 + minute;
+  const { day, minutesNow } = getChicagoNow(now);
 
   if (!hours.days.includes(day)) return false;
   return minutesNow >= toMinutes(hours.start) && minutesNow < toMinutes(hours.end);
