@@ -1,14 +1,14 @@
 @import "tailwindcss";
 
 :root {
-  --background: #14161a;
-  --surface: #1b1e24;
-  --border: #2a2e36;
-  --foreground: #f5f6f8;
-  --primary: #ff8a50;
-  --accent: #ff4438;
-  --accent-hover: #d6301f;
-  --muted: #9ca3af;
+  --background: #ffffff;
+  --surface: #fcfbfa;
+  --border: #e8e3de;
+  --foreground: #1c1e22;
+  --primary: #d8a48c;
+  --accent: #b23b30;
+  --accent-hover: #8f2f27;
+  --muted: #5b6472;
 }
 
 @theme inline {
@@ -61,7 +61,7 @@ body {
 
 .call-pill:hover {
   transform: translateY(-2px);
-  box-shadow: 0 14px 28px -10px rgba(255, 68, 56, 0.5);
+  box-shadow: 0 14px 28px -10px rgba(178, 59, 48, 0.4);
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -83,7 +83,7 @@ body {
 .plumber-card-box:hover,
 .plumber-card-box:focus-within {
   transform: translateY(-4px);
-  box-shadow: 0 24px 48px -20px rgba(255, 68, 56, 0.35);
+  box-shadow: 0 24px 48px -20px rgba(178, 59, 48, 0.25);
   border-color: var(--primary);
 }
 
@@ -111,13 +111,13 @@ body {
 }
 
 .status-badge--open {
-  background: #123321;
-  color: #4ade80;
+  background: #e5f6ec;
+  color: #157a4a;
 }
 
 .status-badge--closed {
-  background: #3a1712;
-  color: #ff7a6b;
+  background: #f7e8e6;
+  color: #a23a30;
 }
 
 .status-dot {
@@ -134,10 +134,10 @@ body {
 @keyframes status-pulse {
   0%,
   100% {
-    box-shadow: 0 0 0 0 rgba(74, 222, 128, 0.4);
+    box-shadow: 0 0 0 0 rgba(21, 122, 74, 0.35);
   }
   50% {
-    box-shadow: 0 0 0 4px rgba(74, 222, 128, 0);
+    box-shadow: 0 0 0 4px rgba(21, 122, 74, 0);
   }
 }
 
