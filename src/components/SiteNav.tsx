@@ -13,7 +13,7 @@ export function SiteNav() {
 
   return (
     <nav className="border-b border-border bg-surface px-6 py-4">
-      <div className="mx-auto flex max-w-5xl items-center justify-between">
+      <div className="mx-auto flex max-w-5xl items-center gap-8">
         <Link href="/" className="text-sm font-bold tracking-tight text-accent">
           Claremore Plumbers
         </Link>
