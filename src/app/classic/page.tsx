@@ -1,8 +1,15 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { plumbers } from "@/data/plumbers";
-import { PlumberCard } from "@/components/PlumberCard";
+import { PlumberCardClassic } from "@/components/PlumberCardClassic";
 
-export default function Home() {
+export const metadata: Metadata = {
+  title: "Best Plumbers in Claremore, OK — Full Directory",
+  description:
+    "Full directory view of trusted local plumbers in Claremore, Oklahoma, with addresses, hours, and live open/closed status.",
+};
+
+export default function ClassicHome() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": plumbers.map((plumber) => ({
@@ -11,6 +18,7 @@ export default function Home() {
       telephone: plumber.phoneE164,
       address: {
         "@type": "PostalAddress",
+        ...(plumber.mapsQuery ? {} : { streetAddress: plumber.address }),
         addressLocality: "Claremore, OK",
         addressRegion: "OK",
         addressCountry: "US",
@@ -41,12 +49,15 @@ export default function Home() {
             Claremore
           </span>
         </h1>
+        <p className="mx-auto mt-6 max-w-xl text-base font-medium text-muted sm:text-lg">
+          Full directory — addresses, hours, and live status.
+        </p>
       </header>
 
-      <main className="flex-1 px-4 pb-24 sm:px-6">
-        <ul className="mx-auto grid max-w-5xl grid-cols-3 gap-x-2 gap-y-6 sm:gap-x-5 sm:gap-y-8">
+      <main className="flex-1 px-6 pb-24">
+        <ul className="mx-auto grid max-w-5xl grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3">
           {plumbers.map((plumber, index) => (
-            <PlumberCard key={plumber.id} plumber={plumber} index={index} />
+            <PlumberCardClassic key={plumber.id} plumber={plumber} index={index} />
           ))}
         </ul>
       </main>
@@ -55,8 +66,11 @@ export default function Home() {
         <p className="text-sm font-medium text-muted">
           Claremore, Oklahoma · {new Date().getFullYear()}
         </p>
+        <p className="mt-1 text-xs text-muted/60">
+          Hours are sourced from public listings and may vary — please call to confirm.
+        </p>
         <p className="mt-4 text-sm font-bold text-accent underline underline-offset-4">
-          <Link href="/classic">View full directory</Link>
+          <Link href="/">View simplified list</Link>
         </p>
       </footer>
     </>
