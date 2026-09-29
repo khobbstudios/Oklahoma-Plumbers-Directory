@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 
 const LINKS = [
   { href: "/", label: "Home" },
-  { href: "/classic", label: "Full Directory" },
+  { href: "/classic", label: "More Info" },
 ];
 
 export function SiteNav() {
