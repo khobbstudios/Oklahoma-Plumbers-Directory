@@ -48,9 +48,6 @@ export default function ClassicHome() {
             Claremore
           </span>
         </h1>
-        <p className="mx-auto mt-6 max-w-xl text-base font-medium text-muted sm:text-lg">
-          Full directory — addresses, hours, and live status.
-        </p>
       </header>
 
       <main className="flex-1 px-4 pb-24 sm:px-6">
