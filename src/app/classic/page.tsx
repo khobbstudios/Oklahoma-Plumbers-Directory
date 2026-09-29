@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { ArrowLeft } from "lucide-react";
 import { plumbers } from "@/data/plumbers";
 import { PlumberCardClassic } from "@/components/PlumberCardClassic";
 
@@ -33,12 +34,21 @@ export default function ClassicHome() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
-      <header className="relative overflow-hidden px-6 pb-16 pt-20 text-center sm:pb-20 sm:pt-28">
+      <header className="relative overflow-hidden px-6 pb-16 pt-8 text-center sm:pb-20 sm:pt-10">
         <div
           aria-hidden="true"
           className="pointer-events-none absolute left-1/2 top-0 -z-10 h-[32rem] w-[32rem] -translate-x-1/2 -translate-y-1/3 rounded-full bg-gradient-to-br from-primary/40 via-accent/15 to-transparent blur-3xl"
         />
-        <h1 className="mx-auto flex max-w-4xl flex-col items-center tracking-tight text-accent">
+        <div className="flex justify-center">
+          <Link
+            href="/"
+            className="inline-flex items-center gap-2 rounded-full border border-border bg-surface px-4 py-2 text-sm font-bold text-accent shadow-sm transition-colors duration-200 hover:bg-background focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+          >
+            <ArrowLeft className="h-4 w-4" aria-hidden="true" />
+            Back to Simple List
+          </Link>
+        </div>
+        <h1 className="mx-auto mt-8 flex max-w-4xl flex-col items-center tracking-tight text-accent sm:mt-10">
           <span className="text-[clamp(2.75rem,9vw,5.5rem)] font-bold leading-[0.95]">
             Plumbers
           </span>
@@ -68,9 +78,6 @@ export default function ClassicHome() {
         </p>
         <p className="mt-1 text-xs text-muted/60">
           Hours are sourced from public listings and may vary — please call to confirm.
-        </p>
-        <p className="mt-4 text-sm font-bold text-accent underline underline-offset-4">
-          <Link href="/">View simplified list</Link>
         </p>
       </footer>
     </>
