@@ -1,29 +1,32 @@
 @import "tailwindcss";
 
 :root {
-  --background: #f5f9ff;
-  --surface: #ffffff;
-  --border: #dce8f8;
-  --primary: #7fa8e0;
-  --accent: #2f5d9e;
-  --accent-hover: #3b6bb0;
-  --muted: #5b6b82;
+  --background: #14161a;
+  --surface: #1b1e24;
+  --border: #2a2e36;
+  --foreground: #f5f6f8;
+  --primary: #ff8a50;
+  --accent: #ff4438;
+  --accent-hover: #d6301f;
+  --muted: #9ca3af;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-surface: var(--surface);
   --color-border: var(--border);
+  --color-foreground: var(--foreground);
   --color-primary: var(--primary);
   --color-accent: var(--accent);
   --color-accent-hover: var(--accent-hover);
   --color-muted: var(--muted);
-  --font-sans: var(--font-poppins);
+  --font-sans: var(--font-inter);
+  --font-serif: var(--font-fraunces);
 }
 
 body {
   background: var(--background);
-  color: var(--accent);
+  color: var(--foreground);
 }
 
 .reveal {
@@ -52,11 +55,13 @@ body {
 .call-pill {
   transition:
     transform 0.2s ease,
-    background-color 0.2s ease;
+    background-color 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
 .call-pill:hover {
   transform: translateY(-2px);
+  box-shadow: 0 14px 28px -10px rgba(255, 68, 56, 0.5);
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -78,7 +83,7 @@ body {
 .plumber-card-box:hover,
 .plumber-card-box:focus-within {
   transform: translateY(-4px);
-  box-shadow: 0 24px 48px -24px rgba(47, 93, 158, 0.35);
+  box-shadow: 0 24px 48px -20px rgba(255, 68, 56, 0.35);
   border-color: var(--primary);
 }
 
@@ -106,13 +111,13 @@ body {
 }
 
 .status-badge--open {
-  background: #e5f6ec;
-  color: #157a4a;
+  background: #123321;
+  color: #4ade80;
 }
 
 .status-badge--closed {
-  background: #fdecec;
-  color: #c0362c;
+  background: #3a1712;
+  color: #ff7a6b;
 }
 
 .status-dot {
@@ -129,10 +134,10 @@ body {
 @keyframes status-pulse {
   0%,
   100% {
-    box-shadow: 0 0 0 0 rgba(21, 122, 74, 0.35);
+    box-shadow: 0 0 0 0 rgba(74, 222, 128, 0.4);
   }
   50% {
-    box-shadow: 0 0 0 4px rgba(21, 122, 74, 0);
+    box-shadow: 0 0 0 4px rgba(74, 222, 128, 0);
   }
 }
 

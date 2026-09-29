@@ -16,7 +16,7 @@ export function SiteNav() {
       <div className="mx-auto flex max-w-5xl flex-wrap items-center gap-x-6 gap-y-2 sm:gap-x-10">
         <Link
           href="/"
-          className="shrink-0 whitespace-nowrap text-base font-bold tracking-tight text-accent sm:text-lg"
+          className="shrink-0 whitespace-nowrap font-serif text-base font-bold tracking-tight text-accent sm:text-lg"
         >
           Claremore Plumbers
         </Link>

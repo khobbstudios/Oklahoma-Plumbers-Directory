@@ -15,7 +15,7 @@ export function PlumberCard({ plumber, index }: PlumberCardProps) {
       className="reveal flex h-full flex-col items-center justify-center gap-3 px-1 py-5 text-center sm:gap-5 sm:px-4 sm:py-8"
       style={{ "--reveal-delay": `${index * 70}ms` } as React.CSSProperties}
     >
-      <span className="text-base font-bold leading-tight text-accent sm:text-xl md:text-2xl">
+      <span className="font-serif text-base font-bold leading-tight text-accent sm:text-xl md:text-2xl">
         {plumber.name}
       </span>
       <a

@@ -29,14 +29,14 @@ export default function Home() {
           aria-hidden="true"
           className="pointer-events-none absolute left-1/2 top-0 -z-10 h-[32rem] w-[32rem] -translate-x-1/2 -translate-y-1/3 rounded-full bg-gradient-to-br from-primary/40 via-accent/15 to-transparent blur-3xl"
         />
-        <h1 className="mx-auto flex max-w-4xl flex-col items-center tracking-tight text-accent">
-          <span className="text-[clamp(2.75rem,9vw,5.5rem)] font-bold leading-[0.95]">
+        <h1 className="mx-auto flex max-w-4xl flex-col items-center font-serif tracking-tight text-accent">
+          <span className="text-[clamp(2.75rem,9vw,5.5rem)] font-black leading-[0.95]">
             Plumbers
           </span>
-          <span className="text-[clamp(1.1rem,3vw,1.75rem)] font-bold uppercase leading-none text-black">
+          <span className="text-[clamp(1.25rem,3.5vw,2rem)] font-semibold italic leading-none text-foreground">
             in
           </span>
-          <span className="text-[clamp(2.75rem,9vw,5.5rem)] font-bold leading-[0.95]">
+          <span className="text-[clamp(2.75rem,9vw,5.5rem)] font-black leading-[0.95]">
             Claremore
           </span>
         </h1>

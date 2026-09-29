@@ -34,7 +34,7 @@ export function PlumberCardClassic({ plumber, index }: PlumberCardClassicProps) 
           <OpenStatusBadge hours={plumber.hours} />
         </div>
         <div className="flex flex-1 flex-col gap-1">
-          <span className="text-base font-bold text-accent sm:text-xl">
+          <span className="font-serif text-base font-bold text-accent sm:text-xl">
             {plumber.name}
           </span>
           <span className="text-sm font-medium text-muted sm:text-lg">
