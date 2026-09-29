@@ -12,12 +12,15 @@ export function SiteNav() {
   const pathname = usePathname();
 
   return (
-    <nav className="border-b border-border bg-surface px-6 py-4">
-      <div className="mx-auto flex max-w-5xl items-center gap-8">
-        <Link href="/" className="text-sm font-bold tracking-tight text-accent">
+    <nav className="border-b border-border bg-surface px-6 py-5">
+      <div className="mx-auto flex max-w-5xl flex-wrap items-center gap-x-6 gap-y-2 sm:gap-x-10">
+        <Link
+          href="/"
+          className="shrink-0 whitespace-nowrap text-base font-bold tracking-tight text-accent sm:text-lg"
+        >
           Claremore Plumbers
         </Link>
-        <div className="flex items-center gap-5">
+        <div className="flex items-center gap-5 sm:gap-6">
           {LINKS.map((link) => {
             const isActive = pathname === link.href;
             return (
@@ -25,7 +28,7 @@ export function SiteNav() {
                 key={link.href}
                 href={link.href}
                 aria-current={isActive ? "page" : undefined}
-                className={`text-sm font-bold transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background ${
+                className={`whitespace-nowrap text-base font-bold transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background sm:text-lg ${
                   isActive ? "text-accent" : "text-muted hover:text-accent"
                 }`}
               >
