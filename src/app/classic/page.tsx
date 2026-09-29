@@ -53,8 +53,8 @@ export default function ClassicHome() {
         </p>
       </header>
 
-      <main className="flex-1 px-6 pb-24">
-        <ul className="mx-auto grid max-w-5xl grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3">
+      <main className="flex-1 px-4 pb-24 sm:px-6">
+        <ul className="mx-auto grid max-w-5xl grid-cols-2 gap-3 sm:gap-5 lg:grid-cols-3">
           {plumbers.map((plumber, index) => (
             <PlumberCardClassic key={plumber.id} plumber={plumber} index={index} />
           ))}
